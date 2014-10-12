@@ -6,7 +6,7 @@ Command-lnie utilities for preparing, signing and broadcasting Stellar transacti
 Installation
 ---
 
-`npm install stellar-send`
+`npm install -g stellar-send`
 
 Usage
 ---
