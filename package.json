@@ -1,0 +1,19 @@
+{
+  "name": "stellar-send",
+  "version": "1.0.0",
+  "description": "Command-lnie utilities for preparing, signing and broadcasting Stellar transactions",
+  "scripts": {
+    "stellar-prepare": "./bin/prepare",
+    "stellar-broadcast": "./bin/broadcast",
+    "stellar-sign": "./bin/sign",
+    "stellar-payment": "./bin/payment"
+  },
+  "preferGlobal": true,
+  "author": "Andreas Brekken <a@abrkn.com>",
+  "license": "ISC",
+  "dependencies": {
+    "optimist": "^0.6.1",
+    "stellar-client": "^1.0.0",
+    "stellar-lib": "^0.9.6"
+  }
+}

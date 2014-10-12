@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+var StellarClient = require('stellar-client')
+
+process.stdin.once('data', function(blob) {
+	var client = new StellarClient()
+	client.once('open', function() {
+		var tx = { tx_blob: blob.toString().replace(/\s/g, '') }
+		client.request('submit', tx, function(err, res) {
+			if (err) return console.error(err)
+			console.log(res)
+			process.exit()
+		})
+	})
+})

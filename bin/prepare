@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+var StellarLib = require('stellar-lib')
+var StellarClient = require('stellar-client')
+var argv = require('optimist')
+.demand('account')
+.demand('destination')
+.demand('amount')
+.describe('dt', 'Destination tag')
+.default('fee', 10000)
+.argv
+
+var tx = {
+	Amount: argv.amount.toString(),
+	Destination: argv.destination,
+	Account: argv.account,
+	TransactionType: 'Payment',
+	Fee: argv.fee.toString()
+}
+
+if (argv.dt) {
+	tx.DestinationTag = argv.dt
+}
+
+var client = new StellarClient()
+client.once('open', function() {
+	client.request('account_info', { account: argv.account }, function(err, res) {
+		if (err) throw err
+		tx.Sequence = res.account_data.Sequence
+		console.log(JSON.stringify(tx))
+		process.exit(0)
+	})
+})
