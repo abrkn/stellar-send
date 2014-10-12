@@ -1,6 +1,6 @@
 {
   "name": "stellar-send",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Command-lnie utilities for preparing, signing and broadcasting Stellar transactions",
   "scripts": {
     "stellar-prepare": "./bin/prepare",
